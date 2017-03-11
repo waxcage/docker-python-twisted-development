@@ -1,7 +1,7 @@
 FROM waxcage/python-twisted:latest
 MAINTAINER Wax Cage
 
-# installing pychecker
+# pychecker
 COPY ./libs/pychecker-0.8.19.tar.gz /tmp/pychecker-0.8.19.tar.gz
 
 RUN tar -xf /tmp/pychecker-0.8.19.tar.gz -C /tmp \
@@ -9,6 +9,16 @@ RUN tar -xf /tmp/pychecker-0.8.19.tar.gz -C /tmp \
     && python /tmp/pychecker-0.8.19/setup.py install \
     && rm /tmp/pychecker-0.8.19.tar.gz \
     && rm -Rf /tmp/pychecker-0.8.19
+
+# pyflakes
+RUN pip install pyflakes
+
+#twistedchecker
+RUN git clone https://github.com/twisted/twistedchecker.git /tmp/twistedchecker \
+    && cd /tmp/twistedchecker \
+    && python setup.py install \
+    && rm -Rf /tmp/twistedchecker
+
 
 # appending .bash_aliases
 COPY .bash_aliases /tmp/.waxcage_bash_aliases
