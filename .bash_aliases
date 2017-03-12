@@ -12,8 +12,6 @@ alias Wpychecker-directory=pychecker-recursive-directory-check
 alias pyflakes-recursive-directory-check=pyflakes
 alias Wpyflakes-directory=pyflakes-recursive-directory-check
 
-# twisted profiler aliases
-Wtwisted-profile-hotshot-format=_twisted_profile_hotshot
 
 # twisted profiler functions
 function _twisted_profile_hotshot(){
@@ -32,6 +30,8 @@ function _twisted_profile_hotshot(){
     fi
 }
 
+# twisted profiler aliases
+alias Wtwisted-profile-hotshot-format=_twisted_profile_hotshot
 
 
 
